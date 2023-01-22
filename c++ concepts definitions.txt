@@ -1,0 +1,3 @@
+array : array is a collection of homogeneous data elements stored in contiguous memory location which features random accessibility at same time and initialization with fixed size of memory.
+	    
+Merge sort is more efficient and works faster than quick sort in case of larger array size or datasets. whereas Quick sort is more efficient and works faster than merge sort in case of smaller array size or datasets.

@@ -1,3 +1,13 @@
+Data Structure: Organization of data needed to solve the problem
+
 array : array is a collection of homogeneous data elements stored in contiguous memory location which features random accessibility at same time and initialization with fixed size of memory.
 	    
 Merge sort is more efficient and works faster than quick sort in case of larger array size or datasets. whereas Quick sort is more efficient and works faster than merge sort in case of smaller array size or datasets.
+
+*stack : Stacks in Data Structures is a linear type of data structure that follows the LIFO (Last-In-First-Out) principle and allows insertion and deletion operations from one end of the stack data structure, that is top.
+
+Sorting: Arranging the records in some logical order (Alphabetical or numerical order).
+
+Queue : A Queue is defined as a linear data structure that is open at both ends and the operations are performed in First In First Out (FIFO) order.
+
+A Queue is like a line waiting to purchase tickets, where the first person in line is the first person served. (i.e. First come first serve).

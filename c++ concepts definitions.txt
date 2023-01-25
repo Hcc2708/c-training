@@ -11,3 +11,35 @@ Sorting: Arranging the records in some logical order (Alphabetical or numerical 
 Queue : A Queue is defined as a linear data structure that is open at both ends and the operations are performed in First In First Out (FIFO) order.
 
 A Queue is like a line waiting to purchase tickets, where the first person in line is the first person served. (i.e. First come first serve).
+
+Linked list  
+Linear collection of self-referential nodes, which are either created via class objects or structure.
+Connected by pointer links
+Accessed via a pointer to the first node of the list
+Link pointer in the last node is set to null to mark the list’s end
+Use a linked list instead of an array when
+You have an unpredictable number of data elements
+You want to insert and delete quickly.
+
+Self-referential structures
+Structure that contains a pointer to a structure of the same type
+Can be linked together to form useful data structures such as lists, queues, stacks and trees
+Terminated with a NULL pointer (0)
+
+There are several conventions for the link to indicate the end of the list.
+a null link that points to no node (0 or NULL)
+a dummy node that contains no item
+a reference back to the first node, making it a circular list.
+
+
+A circular header Link list is a header list where the last node points back to   the header bode. 
+The chains do not indicate the last node and first node of the link list. 
+In this case, external pointers provide a frame reference because last node of a circular link list does not contain null pointer.
+
+Benefit of using Header Node
+One way to simplify insertion and deletion is never to insert an item before the first or after the last item and never to delete the first node 
+You can set a header node at the beginning of the list containing a value smaller than the smallest value in the data set
+You can set a trailer node at the end of the list containing a value larger than the largest value in the data set.
+These two nodes, header and trailer, serve merely to simplify the insertion and deletion algorithms and are not part of the actual list.  
+The actual list is between these two nodes.
+

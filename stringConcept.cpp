@@ -15,4 +15,7 @@ int main()
     //string s5 = "a"+"bc"; // won't work here one of then should be already declared string variable.
     string s4 = s1+ "ba"; 
     cout<<s4;
+    string s5 = "";
+    s5 = s5+1;
+    cout<<s5;
 }

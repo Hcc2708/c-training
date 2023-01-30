@@ -34,4 +34,6 @@ int main()
     cout<<x;
      // map.insert(make_pair(key, value))
      // map.insert(pair<int, int>(key, value))
+     vector<int>num = function1();
+    //  cout<<num[2]; segmentation fault
 }

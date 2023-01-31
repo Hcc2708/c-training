@@ -36,4 +36,5 @@ int main()
      // map.insert(pair<int, int>(key, value))
      vector<int>num = function1();
     //  cout<<num[2]; segmentation fault
+    vector<Node*>children;
 }

@@ -27,4 +27,5 @@ int main(){
     int x = s[0];
     cout<<s[0];
     cout<<x;
+    cout<<('{' == '{');
 }

@@ -1,14 +1,17 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
+#include<iostream>
+#include<vector>
+#include<map>
+using namespace std;
+// Definition for a binary tree node.
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
 class Solution {
 public:
     map<int, int>height;
@@ -46,14 +49,14 @@ public:
         else return height[ptr1->val];
     }
     
-    TreeNode* insertNode(TreeNode* root, int val)
+    TreeNode* insertNode(TreeNode* root, int value)
     {
         if(root == NULL)
-        return new TreeNode(val);
-        else if(root->val > val)
-        root->left = insertNode(root->left, val);
-        else if(root->val < val)
-        root->right = insertNode(root->right, val);
+        return (new TreeNode(value));
+        else if(root->val > value)
+        root->left = insertNode(root->left, value);
+        else if(root->val < value)
+        root->right = insertNode(root->right, value);
 
         if(root->left != NULL && root->right != NULL)
         height[root->val] = max(height[root->right->val], height[root->left->val]) + 1;
@@ -62,16 +65,16 @@ public:
 
         int bal = checkBalance(root->left, root->right);
 
-        if(bal > 1 && val < root->left->val)
+        if(bal > 1 && value < root->left->val)
         return rotateLL(root);
-        if(bal < -1 && val > root->right->val)
+        if(bal < -1 && value > root->right->val)
         return rotateRR(root);
-        if(bal > 1 && val > root->left->val)
+        if(bal > 1 && value > root->left->val)
         {
             root = rotateRR(root);
             return rotateLL(root);
         }
-        if(bal < -1 && val < root->right->val)
+        if(bal < -1 && value < root->right->val)
         {
             root = rotateLL(root);
             return rotateRR(root);
@@ -83,11 +86,27 @@ public:
         {
             height[nums[i]] = 1;
         }
-        TreeNode * root;
+        // for(int i = 0; i<height.size(); i++)
+        // {
+        //     cout<<height[nums[i]]<< " ";
+        // }
+        TreeNode * root = NULL;
         for(int i =0; i<nums.size(); i++)
         {
             root = insertNode(root, nums[i]);
+            cout<<root->val << height[root->val];
+            if(i == 1) break; 
+            
         }
+        cout<<endl;
+        cout<<root->right->val<<" "<< height[root->right->val];
         return root;
     }
 };
+int main()
+{
+    vector<int>nums{-10, -3, 0, 5, 9};
+    cout<<nums[0];
+    Solution obj;
+    obj.sortedArrayToBST(nums);
+}

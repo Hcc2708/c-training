@@ -45,8 +45,8 @@ public:
     {
         if(ptr1 != NULL && ptr2 != NULL)
         return height[ptr1->val] - height[ptr2->val];
-        else if(ptr1 == NULL) return -height[ptr2->val];
-        else return height[ptr1->val];
+        else if(ptr2 != NULL) return -height[ptr2->val];
+        else if(ptr1 != NULL) return height[ptr1->val];
     }
     
     TreeNode* insertNode(TreeNode* root, int value)
@@ -94,12 +94,10 @@ public:
         for(int i =0; i<nums.size(); i++)
         {
             root = insertNode(root, nums[i]);
-            cout<<root->val << height[root->val];
-            if(i == 1) break; 
+            cout<<root->val << " "<< height[root->val]<< endl;
+            
             
         }
-        cout<<endl;
-        cout<<root->right->val<<" "<< height[root->right->val];
         return root;
     }
 };

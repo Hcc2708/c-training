@@ -1,0 +1,2 @@
+1. a complete graph has n^(n-2) spanning trees. 
+	where n is the number of vertices.

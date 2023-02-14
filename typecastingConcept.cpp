@@ -18,14 +18,19 @@ int main(){
     // cout<<s<<endl;
     // s = "raj" + s;
     // cout<<s<<endl;
-    // s = "raj" + 2;
-    // cout<<s;
+    char chr = '0' + 1;
+    string str = "raj";
+    str = str + chr;
+    cout<<str;
+
+    
+    cout<<char(2);
     // cout<<endl<<('1'- '0');
-    string s = "Raj";
-    cout<<typeid(s[0]).name();
-    s[0] = s[0] + 32;
-    int x = s[0];
-    cout<<s[0];
-    cout<<x;
-    cout<<('{' == '{');
+    // string s = "Raj";
+    // cout<<typeid(s[0]).name();
+    // s[0] = s[0] + 32;
+    // int x = s[0];
+    // cout<<s[0];
+    // cout<<x;
+    // cout<<('{' == '{');
 }

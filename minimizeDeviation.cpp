@@ -5,7 +5,6 @@ public:
         return a>b;
     }
     int minimumDeviation(vector<int>& nums) {
-        sort(nums.begin(), nums.end(), cmp);
         int max = 0;
         for(int i : nums)
         {
@@ -20,28 +19,74 @@ public:
                 {
                     nums[i] = nums[i]/2;
                 }
+                if(nums[i] > max) max = nums[i];
             }
-            else break;
         }
-        int max1 =0;
-        for(int i = 0; i<nums.size(); i++)
-        {
-            if(max1 < nums[i]) max1 = nums[i];
-        }
+        sort(nums.begin(), nums.end(), cmp);
+        for(int i : nums) cout<<i<<" ";
+        int max1 = nums[0];
+        int currMin = nums.size()-1;
         for(int i = nums.size()-1; i>= 0;i--)
         {
             if(nums[i] % 2 != 0 && nums[i] < max1)
             {
-                int prev = -1;
+                int prev = nums[i];
                 int num = nums[i];
                 while(num < max1 && num%2 != 0)
                 {
                     prev = num;
                     num = num*2;
                 }
-                cout<<prev<<" "<<num<<endl;
-                if(max1 - prev > abs(num - max1)) nums[i] = num;
-                else nums[i] = prev;
+                if(num <= max1)
+                {
+                    nums[i] = num;
+                    if(i == nums.size()-1)
+                    {
+                        if(nums[i-1] < num)
+                        currMin = i-1;
+
+                        else currMin = i;
+                    }
+                    else
+                    {
+                        if(i-1 >= 0)
+                        {
+                            if(nums[i-1] < num)
+                            {
+                                if(nums[currMin] > nums[i]) currMin = i-1;
+                            }
+                        }
+                    }
+                }
+                else 
+                {
+                    if(abs(num - max1) < abs(num - nums[currMin]))
+                    {
+                        
+                        if(currMin == i)
+                        {
+                            if(abs(num-max1) < abs(max1 - nums[i]))
+                            {
+                                nums[i] = num;
+                            }
+                        }
+                        else {
+                            nums[i] = prev;
+                        }
+                        if(i-1 >= 0)
+                        {
+                            if(nums[currMin] > nums[i-1]) currMin = i-1;
+                        }
+                    }
+                    else 
+                    {
+                        nums[i] = prev;
+                        if(i-1 >= 0)
+                        {
+                            if(nums[currMin] > nums[i-1]) currMin = i-1;
+                        }
+                    }
+                }
             }
         }
         int min  = INT_MAX;
